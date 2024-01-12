@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+nav {
+    height: 50px;
+    background-color: black ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & h1 {
+        color: white;
+    }
+}
+
+ main {
+    display: flex;
+    justify-content: center;
+
+   & .container {
+        
+        margin: 30px 0px;
+        max-width: 800px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+        overflow: hidden;
+        
+    
+        & .nike-info {
+           height: 100%;
+           
+
+            & img {
+                
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        & .nike-text {
+
+            margin: 20px;
+
+            & .title {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+
+            & .star {
+                color: orange;
+            }
+        }
+
+        & .pick-color {
+            margin: 20px;
+           
+            & .color {
+                margin-top: 10px;
+                display: flex;
+                
+                & .circle-orange {
+                    background-color: orange;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid black; 
+                }
+
+                & .circle-blue {
+                    background-color: #2222ff;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid black; 
+                }
+              
+            }
+          
+           
+        }
+
+        & .cart-btn{
+          
+            margin: 20px;
+           
+         
+            & .add-to-cart , .cart-added{
+                width: 100px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+        }
+
+    }
+ }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: black ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+        color: white;
+    }
+}
