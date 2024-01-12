@@ -47,6 +47,7 @@ nav {
 
             & .title {
                 font-size: 20px;
+                color: orange;
                 margin: 10px 0;
             }
 
@@ -58,11 +59,12 @@ nav {
         & .pick-color {
             margin: 20px;
            
-            & .color {
+            & .circle {
                 margin-top: 10px;
                 display: flex;
                 
                 & .circle-orange {
+                    cursor: pointer;
                     background-color: orange;
                     margin-right: 8px;
                     border-radius: 50%;
@@ -72,7 +74,8 @@ nav {
                 }
 
                 & .circle-blue {
-                    background-color: #2222ff;
+                    cursor: pointer;
+                    background-color: blue;
                     margin-right: 8px;
                     border-radius: 50%;
                     width: 30px;
@@ -90,7 +93,9 @@ nav {
             margin: 20px;
            
          
-            & .add-to-cart , .cart-added{
+            & .add-to-cart {
+                cursor: pointer;
+                background-color:orange;
                 width: 100px;
                 height: 30px;
                 border-radius: 5px;
@@ -98,6 +103,15 @@ nav {
                 font-weight: bold;
             }
 
+            & .cart-added {
+                cursor: pointer;
+                background-color:rgb(158, 158, 158);
+                width: 100px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 12px;
+                font-weight: bold;
+            }
         }
 
     }
