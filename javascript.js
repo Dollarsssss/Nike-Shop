@@ -1,3 +1,4 @@
+
 let cartClicked = true;
 const img = document.querySelector(".product-image");
 const title = document.querySelector(".title")
