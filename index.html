@@ -16,7 +16,7 @@
         </div>
     </nav>
 
-    <div class="container container-wrapper-content">
+    <div class="container container-wrapper-content" >
         <aside>
             <div class="aside-wrapper">
                 <input type="text" class="search" placeholder="search something...">
@@ -27,7 +27,7 @@
             </div>
         </aside>
 
-        <section class="content_nike" >
+        <section class="content-nike">
             <div class="container-nike">
                 <div class="nike-info">
                     <div class="image">
@@ -46,6 +46,44 @@
                         </span> </p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="content-popup" style="display: none;">
+            <div class="container-popup">
+                <h1>Detail</h1>
+                <div class="container-popup-wrapper">
+                    <div class="popup-info-left">
+                        <div class="image">
+                            <img src="./img/metcon-9-amp-orange.png" class="popup-product-image">
+                        </div>
+                    </div>
+                    <div class="popup-info-right-wrapper">
+                        <div class="popup-info-right">
+                            <div class="popup-text">
+                                <h4 class="title">Metcon 9 Awp</h4>
+                                <h4 class="title">฿ 5,500</h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore pla <br>
+                                ceat repellat harum, officia sapiente voluptates quis, quidem, quam ve- <br>lit ut laboriosam? 
+                                Eligendi harum recusandae laudantium accusantium quisquam a, odio minima.</p>
+                            </div>
+            
+                            <div class="popup-pick-color">
+                                <h4>Pick a Color</h4>
+                                <div class="popup-circle">
+                                    <div class="popup-circle-orange" onclick="circleColorFirst()"></div>
+                                    <div class="popup-circle-blue" onclick="circleColorSecond()"></div>
+                                </div>
+                            </div>
+            
+                             <div class="popup-cart-btn">
+                                <button class="add-to-cart"><i class="bi bi-cart-plus-fill"></i> Add To Cart</button>
+                                <button class="cart-added" style="display:none;">Cart Added</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 

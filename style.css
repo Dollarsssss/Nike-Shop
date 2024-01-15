@@ -79,7 +79,7 @@ nav {
         }
     }
 
-    & .content_nike {
+    & .content-nike {
         display: flex;
     
        & .container-nike {
@@ -179,6 +179,139 @@ nav {
     
 }
 
+ .content-popup {
+  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+   & .container-popup {
+
+    background-color: #fff;
+        margin: 10px 0px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+        overflow: hidden;
+
+        & h1 {
+            margin: 15px;
+        }
+
+        & .container-popup-wrapper {
+            
+                display: flex;
+                align-items: center;
+
+            
+                & .popup-info-left {
+            
+                    margin-left: 15px;
+       
+                
+                & .image {
+                   
+                    & img {
+                        border-radius: 10px;
+                        margin-top: 10px 0;
+                        width: 250px;
+                        height: 250px;
+
+                        }
+                    }
+                }
+
+                & .popup-info-right-wrapper {
+                    margin-left: 30px;  
+                    width: 500px;
+
+                    & .popup-info-right{
+                
+
+                        & .popup-text {
+                        
+                        
+                            & .title:nth-of-type(1) {
+                                font-size: 30px;
+                            }
+
+                            & .title:nth-of-type(2) {
+                                font-size: 20px;
+                                margin-bottom: 20px;
+                            }
+
+                            & p {
+                                opacity: 70%;
+                            }
+            
+                    }
+            
+                    & .popup-pick-color {
+                        margin-top: 20px;
+                    
+                        & .popup-circle {
+                            margin-top: 10px;
+                            display: flex;
+                            
+                            & .popup-circle-orange {
+                                cursor: pointer;
+                                background-color: orange;
+                                margin-right: 8px;
+                                border-radius: 50%;
+                                width: 30px;
+                                height: 30px;
+                                border: 1px solid black; 
+                            }
+            
+                            & .popup-circle-blue {
+                                cursor: pointer;
+                                background-color: blue;
+                                margin-right: 8px;
+                                border-radius: 50%;
+                                width: 30px;
+                                height: 30px;
+                                border: 1px solid black; 
+                            }
+                        
+                        }
+                    
+                    
+                    }
+            
+                    & .popup-cart-btn{
+                        margin: 20px 0;
+                    
+                    
+                        & .add-to-cart {
+                            cursor: pointer;
+                            background-color:orange;
+                            width: 100px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 12px;
+                            font-weight: bold;
+                        }
+            
+                        & .cart-added {
+                            cursor: pointer;
+                            background-color:rgb(158, 158, 158);
+                            width: 100px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 12px;
+                            font-weight: bold;
+                                }
+                            }
+
+                    }   
+
+                }
+
+         }
+
+    }
+ }
 
  
 footer {
