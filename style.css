@@ -4,119 +4,183 @@
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 
 nav {
     height: 50px;
     background-color: black ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
+    & .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    & h1 {
-        color: white;
-    }
+        & h1 ,.logo {
+           
+            color: #fff;
+        }
+    }  
 }
 
- main {
+.container-wrapper-content  {
+
     display: flex;
-    justify-content: center;
-
-   & .container {
-        
-        margin: 30px 0px;
-        max-width: 800px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px gray;
-        overflow: hidden;
-        
     
-        & .nike-info {
-           height: 100%;
+    & aside {
+   
+        width: 300px;
+    
+        & .aside-wrapper {
            
-
-            & img {
+            margin: 0 auto;
+    
+            & .search {
                 
-                width: 300px;
-                height: 300px;
-            }
-        }
-
-        & .nike-text {
-
-            margin: 20px;
-
-            & .title {
-                font-size: 20px;
-                color: orange;
-                margin: 10px 0;
-            }
-
-            & .star {
-                color: orange;
-            }
-        }
-
-        & .pick-color {
-            margin: 20px;
-           
-            & .circle {
+                width: 200px;
+                height: 40px;
                 margin-top: 10px;
-                display: flex;
-                
-                & .circle-orange {
-                    cursor: pointer;
-                    background-color: orange;
-                    margin-right: 8px;
-                    border-radius: 50%;
-                    width: 30px;
-                    height: 30px;
-                    border: 1px solid black; 
-                }
+                border-radius: 5px;
+                padding-left: 20px;
+                font-size: 15px;
+                background-color: rgb(211, 208, 208);
+                border: 0;
 
-                & .circle-blue {
-                    cursor: pointer;
-                    background-color: blue;
-                    margin-right: 8px;
-                    border-radius: 50%;
-                    width: 30px;
-                    height: 30px;
-                    border: 1px solid black; 
+    
+            }
+    
+            & .menu {
+                margin-top: 20px;
+             
+                & li {
+                    width: 200px;
+                    height: 40px;
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    padding-left: 20px;
+                    background-color: rgb(211, 208, 208);
+                    border: 0;
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+
+                    & a {
+                  
+                        color: #222;
+                        font-size: 15px;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    & .content_nike {
+        display: flex;
+    
+       & .container-nike {
+           
+            margin: 10px 0px;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            overflow: hidden;
+            
+        
+            & .nike-info {
+               height: 100%;
+               
+    
+                & img {
+                    
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+    
+            & .nike-text {
+    
+                margin: 20px;
+    
+                & .title {
+                    font-size: 20px;
+                    margin: 10px 0;
+                }
+    
+                & .star {
+                    color: orange;
+                }
+            }
+    
+            & .pick-color {
+                margin: 20px;
+               
+                & .circle {
+                    margin-top: 10px;
+                    display: flex;
+                    
+                    & .circle-orange {
+                        cursor: pointer;
+                        background-color: orange;
+                        margin-right: 8px;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        border: 1px solid black; 
+                    }
+    
+                    & .circle-blue {
+                        cursor: pointer;
+                        background-color: blue;
+                        margin-right: 8px;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        border: 1px solid black; 
+                    }
+                  
                 }
               
+               
             }
-          
-           
+    
+            & .cart-btn{
+              
+                margin: 20px;
+               
+             
+                & .add-to-cart {
+                    cursor: pointer;
+                    background-color:orange;
+                    width: 100px;
+                    height: 30px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+    
+                & .cart-added {
+                    cursor: pointer;
+                    background-color:rgb(158, 158, 158);
+                    width: 100px;
+                    height: 30px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+    
         }
+     }
+    
+}
 
-        & .cart-btn{
-          
-            margin: 20px;
-           
-         
-            & .add-to-cart {
-                cursor: pointer;
-                background-color:orange;
-                width: 100px;
-                height: 30px;
-                border-radius: 5px;
-                font-size: 12px;
-                font-weight: bold;
-            }
 
-            & .cart-added {
-                cursor: pointer;
-                background-color:rgb(158, 158, 158);
-                width: 100px;
-                height: 30px;
-                border-radius: 5px;
-                font-size: 12px;
-                font-weight: bold;
-            }
-        }
-
-    }
- }
-
+ 
 footer {
     position: fixed;
     bottom: 0;

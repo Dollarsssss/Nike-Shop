@@ -10,44 +10,48 @@
 <body>
       
     <nav>
-        <h1>Nike Shop</h1>
+        <div class="container">
+            <h1>Nike Shop</h1>
+            <div class="logo"><i class="bi bi-cart-fill"></i></div>
+        </div>
     </nav>
 
-    <main>
-        <div class="container">
-            <div class="nike-info">
-                <div class="image">
-                    <img src="./img/metcon-9-amp-orange.png" class="product-image">
-                </div>
-                <div class="nike-text">
-                    <h4 class="title">Metcon 9 Awp</h4>
-                    <p>Made in USA </p>
-                    <p class="color">Color : Orange</p>
-                    <p>Review : <span class="star">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
-                </div>
+    <div class="container container-wrapper-content">
+        <aside>
+            <div class="aside-wrapper">
+                <input type="text" class="search" placeholder="search something...">
+                <ul class="menu">
+                    <li><a href="#">Shoe</a></li>
+                    <li><a href="#">Shirt</a></li>
+                </ul>
+            </div>
+        </aside>
 
-                <div class="pick-color">
-                    <h4>Pick a Color</h4>
-                    <div class="circle">
-                        <div class="circle-orange"></div>
-                        <div class="circle-blue"></div>
+        <section class="content_nike" >
+            <div class="container-nike">
+                <div class="nike-info">
+                    <div class="image">
+                        <img src="./img/metcon-9-amp-orange.png" class="product-image">
+                    </div>
+                    <div class="nike-text">
+                        <h4 class="title">Metcon 9 Awp</h4>
+                        <p>Made in USA </p>
+                        <p class="color">Color : Orange</p>
+                        <p>Review : <span class="star">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </span> </p>
                     </div>
                 </div>
-
-                <div class="cart-btn">
-                    <button class="add-to-cart"><i class="bi bi-cart-fill"></i> Add To Cart</button>
-                    <button class="cart-added" style="display: none;">Cart Added</button>
-                </div>
             </div>
-        </div>
-    </main>
+        </section>
 
+        
+    </div>
+    
     <footer>
         <p>copyright 2024 . Metcon 9 Awp</p>
     </footer>
