@@ -10,7 +10,6 @@ const contentPopup = document.querySelector(".content-popup");
 const exit = document.getElementById("exit");
 
 function circleColorFirst () {
-    console.log(1);
     img.src = "./img/metcon-9-amp-orange.png";
     addCart.style.backgroundColor = "orange";
     addCart.style.color = "black";
@@ -18,7 +17,6 @@ function circleColorFirst () {
 }
 
 function circleColorSecond () {
-    console.log(2);
     img.src = "./img/metcon-9-amp-blue.png";
     addCart.style.backgroundColor = "blue";
     addCart.style.color = "white";
@@ -33,4 +31,10 @@ contentNike.addEventListener("click",()=>{
 
 exit.addEventListener("click",()=>{
     contentPopup.style.display = "none";
+})
+
+
+addCart.addEventListener("click",()=>{
+    addCart.style.display = "none";
+    cartAdded.style.display = "block";
 })
