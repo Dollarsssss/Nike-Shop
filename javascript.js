@@ -7,6 +7,7 @@ const cartAdded = document.querySelector(".cart-added");
 
 const contentNike = document.querySelector(".content-nike");
 const contentPopup = document.querySelector(".content-popup");
+const exit = document.getElementById("exit");
 
 function circleColorFirst () {
     console.log(1);
@@ -27,5 +28,9 @@ function circleColorSecond () {
 
 contentNike.addEventListener("click",()=>{
     contentPopup.style.display = "block";
-    
+  
+})
+
+exit.addEventListener("click",()=>{
+    contentPopup.style.display = "none";
 })
