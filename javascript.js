@@ -46,21 +46,31 @@ function createProduct(src,selectorClassImg,selectorContainerImg,selectorClassIm
     selectorContainerImgPopup,valueText,valuePrice,selectorClassText,selectorContainerText,colors,selectorClassColor,selectorContainerColor){
 
     const img = document.createElement("img");
+    img.classList.add(selectorClassImg);
+    img.src = src;
+    document.querySelector(selectorContainerImg).append(img);
+
     const imgPopup = document.createElement("img");
+    imgPopup.classList.add(selectorClassImgPopup);
+    imgPopup.src = src;
+    document.querySelector(selectorContainerImgPopup).append(imgPopup);
+
 
     const title = document.createElement("h4");
-    const productPrice = document.createElement("h4");
     title.classList.add(selectorClassText);
-    productPrice.classList.add(selectorClassText);
-    img.classList.add(selectorClassImg);
-    imgPopup.classList.add(selectorClassImgPopup);
-    img.src = src;
-    imgPopup.src = src;
     title.innerHTML = valueText;
+
+    const productPrice = document.createElement("h4");
+    productPrice.classList.add(selectorClassText);
     productPrice.innerHTML = " ฿ " + valuePrice;
-    document.querySelector(selectorContainerImg).append(img);
+    
     document.querySelector(selectorContainerText).append(title,productPrice);
-    document.querySelector(selectorContainerImgPopup).append(imgPopup);
+    
+    
+    
+    
+   
+    
 
     for (let i = 0; i < colors.length; i++) {
 
@@ -70,10 +80,6 @@ function createProduct(src,selectorClassImg,selectorContainerImg,selectorClassIm
         document.querySelector(selectorContainerColor).append(pickColor)
         
     }
-
-    
-        
-
 }
 
 createProduct(linkimage,"product-image",".image","popup-product-image",".popup-image",productname,price,"title",".nike-text"
