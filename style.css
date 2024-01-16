@@ -286,25 +286,16 @@ nav {
                             margin-top: 10px;
                             display: flex;
                             
-                            & .popup-circle-orange {
+                            & .popup-circle-color {
                                 cursor: pointer;
-                                background-color: orange;
+                                
                                 margin-right: 8px;
                                 border-radius: 50%;
                                 width: 30px;
                                 height: 30px;
                                 border: 1px solid black; 
                             }
-            
-                            & .popup-circle-blue {
-                                cursor: pointer;
-                                background-color: blue;
-                                margin-right: 8px;
-                                border-radius: 50%;
-                                width: 30px;
-                                height: 30px;
-                                border: 1px solid black; 
-                            }
+        
                         
                         }
                     

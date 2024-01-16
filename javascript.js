@@ -9,19 +9,6 @@ const contentNike = document.querySelector(".content-nike");
 const contentPopup = document.querySelector(".content-popup");
 const exit = document.getElementById("exit");
 
-function circleColorFirst () {
-    img.src = "./img/metcon-9-amp-orange.png";
-    addCart.style.backgroundColor = "orange";
-    addCart.style.color = "black";
-    console.log(img);
-}
-
-function circleColorSecond () {
-    img.src = "./img/metcon-9-amp-blue.png";
-    addCart.style.backgroundColor = "blue";
-    addCart.style.color = "white";
-    console.log(img);
-}
 
 
 contentNike.addEventListener("click",()=>{
@@ -41,38 +28,22 @@ addCart.addEventListener("click",()=>{
 
 
 
-function productObject(id,productname,price,color,linkimage){
+function productObject(id,productname,price,colors,linkimage){
 
     this.id = id;
     this.productname = productname
     this.price = price
-    this.color = color
+    this.colors = colors
     this.linkimage = linkimage
  
 }
 
-// <div class="nike-info">
-// <div class="image">
-//     <img src="./img/metcon-9-amp-orange.png" class="product-image">
-// </div>
-// <div class="nike-text">
-//     <h4 class="title">Metcon 9 Awp</h4>
-//     <h4 class="title">฿ 5,500</h4>
-//     <p>Review : <span class="star">
-//         <i class="bi bi-star-fill"></i>
-//         <i class="bi bi-star-fill"></i>
-//         <i class="bi bi-star-fill"></i>
-//         <i class="bi bi-star-fill"></i>
-//         <i class="bi bi-star-fill"></i>
-//     </span> </p>
-// </div>
-// </div>
+let nike = new productObject(1,"Metcon 9 Awp","4500",["orange","blue"],"./img/metcon-9-amp-orange.png");
 
-let nike = new productObject(1,"Metcon 9 Awp","4500",["orange","red"],"./img/metcon-9-amp-orange.png");
+const{id ,productname ,price ,colors ,linkimage } = nike
 
-const{id ,productname ,price ,color ,linkimage } = nike
-
-function createProduct(src,selectorClassImg,seletorContainerImg,selectorClassImgPopup,seletorContainerImgPopup,valueText,valuePrice,selectorClassText,seletorContainerText){
+function createProduct(src,selectorClassImg,selectorContainerImg,selectorClassImgPopup,
+    selectorContainerImgPopup,valueText,valuePrice,selectorClassText,selectorContainerText,colors,selectorClassColor,selectorContainerColor){
 
     const img = document.createElement("img");
     const imgPopup = document.createElement("img");
@@ -87,13 +58,30 @@ function createProduct(src,selectorClassImg,seletorContainerImg,selectorClassImg
     imgPopup.src = src;
     title.innerHTML = valueText;
     productPrice.innerHTML = " ฿ " + valuePrice;
-    document.querySelector(seletorContainerImg).append(img);
-    document.querySelector(seletorContainerText).append(title,productPrice);
-    document.querySelector(seletorContainerImgPopup).append(imgPopup);
+    document.querySelector(selectorContainerImg).append(img);
+    document.querySelector(selectorContainerText).append(title,productPrice);
+    document.querySelector(selectorContainerImgPopup).append(imgPopup);
+
+    for (let i = 0; i < colors.length; i++) {
+
+        const pickColor = document.createElement("div");
+        pickColor.classList.add(selectorClassColor)
+        pickColor.style.backgroundColor = colors[i]
+        document.querySelector(selectorContainerColor).append(pickColor)
+        
+    }
+
+    
+        
 
 }
 
-createProduct(linkimage,"product-image",".image","popup-product-image",".popup-image",productname,price,"title",".nike-text");
+createProduct(linkimage,"product-image",".image","popup-product-image",".popup-image",productname,price,"title",".nike-text"
+,colors,"popup-circle-color",".popup-circle");
+
+
+
+    
 
 
 
