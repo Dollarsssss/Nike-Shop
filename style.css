@@ -84,45 +84,46 @@ nav {
 
     & .content-nike {
         display: flex;
-        transition: transform 0.4s ;
-        
+    
+
        & .container-nike {
-           
+          
             margin: 10px 0px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px gray;
-            overflow: hidden;
-            
+           
+           
+            & .content-layout-nike{
+                display: flex;
+              
+
+                & .nike-info {
+                    transition: transform 0.4s ;
+                    margin: 20px;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px gray;
+
+                    & img {
+                        
+                        width: 220px;
+                        height: 220px;
+                    }
+
+                    & .nike-text {
         
-            & .nike-info {
-               height: 100%;
-               
-    
-                & img {
-                    
-                    width: 220px;
-                    height: 220px;
+                        margin: 20px;
+            
+                        & .title {
+                            font-size: 20px;
+                            margin: 10px 0;
+                        }
+                        & .title:nth-of-type(2) {
+                            font-size: 17px;
+                            margin: 10px 0;
+                        }
+            
+                    }
                 }
             }
-    
-            & .nike-text {
-    
-                margin: 20px;
-    
-                & .title {
-                    font-size: 20px;
-                    margin: 10px 0;
-                }
-                & .title:nth-of-type(2) {
-                    font-size: 17px;
-                    margin: 10px 0;
-                }
-    
-                & .star {
-                    color: orange;
-                }
-            }
-    
             & .pick-color {
                 margin: 20px;
                
@@ -186,7 +187,7 @@ nav {
     
 }
 
-.content-nike:hover {
+.nike-info:hover {
   transform: scale(1.05);
 }
 
