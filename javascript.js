@@ -1,5 +1,4 @@
 
-
 const addCart = document.querySelector(".add-to-cart");
 const cartAdded = document.querySelector(".cart-added");
 
@@ -79,24 +78,20 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
     productPricePopup.innerHTML = ` ฿ ${valuePrice}`;
     
     document.querySelector(selectorContainerText).prepend(productNamePopup,productPricePopup)
+    
+    const pickColor = [];
 
         for (let i = 0; i < colors.length; i++) {
 
-            const pickColor = [colors.length];
-            console.log(pickColor);
-            
-
-            for (let j = 0; j < pickColor.length; j++) {
-
-                pickColor[j] = document.createElement("div");
-                pickColor[j].classList.add(selectorClassColor)
-                pickColor[j].style.backgroundColor = colors[i]
-                document.querySelector(selectorContainerColor).append(pickColor[j])
+            pickColor[i] = document.createElement("div");
+            pickColor[i].classList.add(selectorClassColor)
+            pickColor[i].style.backgroundColor = colors[i]
+            document.querySelector(selectorContainerColor).append(pickColor[i])
 
                 for (let h = 0; h < linkimage.length; h++) {
                     
-                    pickColor[j].addEventListener("click",()=>{
-                        imgPopup.src = linkimage[i]
+                    pickColor[i].addEventListener("click",()=>{
+                        imgPopup.src = linkimage[i];
                     })
                     
                 }
@@ -106,12 +101,12 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
         
         }
 
-}   
+
 
 createProduct(linkimage[0],"product-image",".image",productname,price,"title",".nike-text"
 ,colors,"popup-circle-color",".popup-circle");
-
-createProductPopup(linkimage[0],"popup-product-image",".popup-image",productname,price,".popup-text",colors,"popup-circle-color",".popup-circle")
+createProductPopup(linkimage[0],"popup-product-image",".popup-image",productname,price,".popup-text",
+colors,"popup-circle-color",".popup-circle")
 
 
 
