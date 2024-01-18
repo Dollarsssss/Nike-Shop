@@ -24,7 +24,6 @@ addCart.addEventListener("click",()=>{
 })
 
 
-
 function productObject(id,productname,price,colors,linkimage){
 
     this.id = id;
@@ -35,19 +34,31 @@ function productObject(id,productname,price,colors,linkimage){
  
 }
 
-const nike = new productObject(1,"Metcon 9 Awp","4500",["orange","blue"],["./img/metcon-9-amp-orange.png","./img/metcon-9-amp-blue.png"]);
+const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon-9-amp-orange.png","./img/metcon-9-amp-blue.png"]);
+const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","white"],
+["./img/air-force-1-07-blue.png","./img/air-force-1-07-pink.png","./img/air-force-1-07-green.png","./img/air-force-1-07-white.png"]);
 
-const{id ,productname ,price ,colors ,linkimage } = nike
+let countProduct = 0 ;
 
 function createProduct(src,selectorClassImg,selectorContainerImg,
    valueText,valuePrice,selectorClassText,selectorContainerText){
 
-
-
+   
+    const wrapperObject = document.createElement("div");
+    wrapperObject.classList.add("nike-info");
+    wrapperObject.id = `nike-info-ID-${countProduct}`
+    document.querySelector(".content-layout-nike").append(wrapperObject)
+  
     const img = document.createElement("img");
     img.classList.add(selectorClassImg);
     img.src = src;
-    document.querySelector(selectorContainerImg).append(img);
+    document.getElementById(selectorContainerImg).append(img);
+
+
+    const wrapperText = document.createElement("div");
+    wrapperText.classList.add("nike-text");
+    wrapperText.id = `nike-text-ID-${countProduct}`
+    document.getElementById(`nike-info-ID-${countProduct}`).append(wrapperText)
 
     const productName = document.createElement("h4");
     productName.classList.add(selectorClassText);
@@ -57,9 +68,16 @@ function createProduct(src,selectorClassImg,selectorContainerImg,
     productPrice.classList.add(selectorClassText);
     productPrice.innerHTML = ` ฿ ${valuePrice}`;
 
-    document.querySelector(selectorContainerText).append(productName,productPrice);
+    document.getElementById(selectorContainerText).append(productName,productPrice);
+
+    countProduct++;
     
 }
+
+createProduct(nike.linkimage[0],"product-image",`nike-info-ID-${countProduct}`,nike.productname,nike.price,"title",`nike-text-ID-${countProduct}`);
+createProduct(nike2.linkimage[0],"product-image",`nike-info-ID-${countProduct}`,nike2.productname,nike2.price,"title",`nike-text-ID-${countProduct}`);
+
+
 
 function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImgPopup,valueText,valuePrice,selectorContainerText
     ,colors,selectorClassColor,selectorContainerColor){
@@ -88,10 +106,10 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
             pickColor[i].style.backgroundColor = colors[i]
             document.querySelector(selectorContainerColor).append(pickColor[i])
 
-                for (let h = 0; h < linkimage.length; h++) {
+                for (let h = 0; h < nike.linkimage.length; h++) {
                     
                     pickColor[i].addEventListener("click",()=>{
-                        imgPopup.src = linkimage[i];
+                        imgPopup.src = nike.linkimage[i];
                     })
                     
                 }
@@ -103,10 +121,13 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
 
 
 
-createProduct(linkimage[0],"product-image",".image",productname,price,"title",".nike-text"
-,colors,"popup-circle-color",".popup-circle");
-createProductPopup(linkimage[0],"popup-product-image",".popup-image",productname,price,".popup-text",
-colors,"popup-circle-color",".popup-circle")
+
+createProductPopup(nike.linkimage[0],"popup-product-image",".popup-image",nike.productname,nike.price,".popup-text",
+nike.colors,"popup-circle-color",".popup-circle")
+
+
+
+
 
 
 
