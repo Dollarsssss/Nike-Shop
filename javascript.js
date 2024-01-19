@@ -185,11 +185,20 @@ nike2.colors)
 
 let keep = [];
 keep = document.querySelectorAll('.nike-info')
-console.log(keep[1]);
 
-contentNike.addEventListener("click",()=>{
+
+keep[0].addEventListener("click",()=>{
     contentPopup.style.display = "block";
-    if(keep){}
+    document.getElementById("containerPopup-0").style.display = "block";
+    document.getElementById("containerPopup-1").style.display = "none";
+    
+
+})
+keep[1].addEventListener("click",()=>{
+    contentPopup.style.display = "block";
+    document.getElementById("containerPopup-1").style.display = "block";
+    document.getElementById("containerPopup-0").style.display = "none";
+ 
 })
 
 
