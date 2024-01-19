@@ -238,28 +238,23 @@ nav {
             
                 display: flex;
                            
-                & .popup-info-left {
-            
-                    margin-left: 15px;
-       
-                
-                & .popup-image {
-                   
-                    & img {
-                        border-radius: 10px;
-                        margin-top: 10px 0;
-                        width: 250px;
-                        height: 282PX;
+                & .popup-info-wrapper {
+                    display: flex;
+                    width: 1000px;
 
-                        }
+                    & .popup-image {
+
+                        margin: 0px 30px;
+
+                        & img {
+                            border-radius: 10px;
+                            margin-top: 10px 0;
+                            width: 250px;
+                            height: 282PX;
+    
+                            }
                     }
-                }
-
-                & .popup-info-right-wrapper {
-                    margin-left: 30px;  
-                    width: 500px;
-
-                    & .popup-info-right{
+                    & .popup-info-text{
                 
 
                         & .popup-text {
@@ -318,6 +313,7 @@ nav {
                         }
             
                         & .cart-added {
+                            display: none;
                             cursor: pointer;
                             background-color:rgb(158, 158, 158);
                             width: 100px;

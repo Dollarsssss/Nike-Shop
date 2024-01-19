@@ -8,22 +8,6 @@ const exit = document.getElementById("exit");
 
 
 
-contentNike.addEventListener("click",()=>{
-    contentPopup.style.display = "block";
-  
-})
-
-exit.addEventListener("click",()=>{
-    contentPopup.style.display = "none";
-})
-
-
-addCart.addEventListener("click",()=>{
-    addCart.style.display = "none";
-    cartAdded.style.display = "block";
-})
-
-
 function productObject(id,productname,price,colors,linkimage){
 
     this.id = id;
@@ -34,25 +18,24 @@ function productObject(id,productname,price,colors,linkimage){
  
 }
 
-const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img/metcon-9-amp-blue.png"]);
+const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
 const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","white"],
 ["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
 
 let countProduct = 0 ;
 
-function createProduct(src,selectorClassImg,selectorContainerImg,
-   valueText,valuePrice,selectorClassText,selectorContainerText){
+function createProduct(id,src,valueText,valuePrice){
 
-   
+    
     const wrapperObject = document.createElement("div");
     wrapperObject.classList.add("nike-info");
     wrapperObject.id = `nike-info-ID-${countProduct}`
     document.querySelector(".content-layout-nike").append(wrapperObject)
   
     const img = document.createElement("img");
-    img.classList.add(selectorClassImg);
+    img.classList.add("product-image");
     img.src = src;
-    document.getElementById(selectorContainerImg).append(img);
+    document.getElementById(`nike-info-ID-${countProduct}`).append(img);
 
 
     const wrapperText = document.createElement("div");
@@ -61,31 +44,58 @@ function createProduct(src,selectorClassImg,selectorContainerImg,
     document.getElementById(`nike-info-ID-${countProduct}`).append(wrapperText)
 
     const productName = document.createElement("h4");
-    productName.classList.add(selectorClassText);
+    productName.classList.add("title");
     productName.innerHTML = valueText;
 
     const productPrice = document.createElement("h4");
-    productPrice.classList.add(selectorClassText);
+    productPrice.classList.add("title");
     productPrice.innerHTML = ` ฿ ${valuePrice}`;
 
-    document.getElementById(selectorContainerText).append(productName,productPrice);
+    document.getElementById(`nike-text-ID-${countProduct}`).append(productName,productPrice);
 
     countProduct++;
     
 }
 
-createProduct(nike.linkimage[0],"product-image",`nike-info-ID-${countProduct}`,nike.productname,nike.price,"title",`nike-text-ID-${countProduct}`);
-createProduct(nike2.linkimage[0],"product-image",`nike-info-ID-${countProduct}`,nike2.productname,nike2.price,"title",`nike-text-ID-${countProduct}`);
+createProduct(nike.id,nike.linkimage[0],nike.productname,nike.price);
+createProduct(nike2.id,nike2.linkimage[0],nike2.productname,nike2.price);
+
+let countProductPopup = 0;
+
+function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
 
+    const containerPopup = document.createElement("div");
+    containerPopup.classList.add("container-popup-wrapper")
+    containerPopup.id = `containerPopup-${countProductPopup}`
+    containerPopup.style.display = "none"
+    document.querySelector(".container-popup").append(containerPopup);
 
-function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImgPopup,valueText,valuePrice,selectorContainerText
-    ,colors,selectorClassColor,selectorContainerColor){
+    const popupInfoWrapper = document.createElement("div")
+    popupInfoWrapper.classList.add("popup-info-wrapper")
+    popupInfoWrapper.id = `popupInfoWrapper-${countProductPopup}`
+    document.getElementById(`containerPopup-${countProductPopup}`).append(popupInfoWrapper)
+
+    const popupImage = document.createElement("div")
+    popupImage.classList.add("popup-image")
+    popupImage.id = `popupImage-${countProductPopup}`
+    document.getElementById(`popupInfoWrapper-${countProductPopup}`).append(popupImage)
 
     const imgPopup = document.createElement("img");
-    imgPopup.classList.add(selectorClassImgPopup);
-    imgPopup.src = srcPopup;
-    document.querySelector(selectorContainerImgPopup).append(imgPopup);
+    imgPopup.classList.add("popup-product-image");
+    imgPopup.src = srcPopup[0];
+    document.getElementById(`popupImage-${countProductPopup}`).append(imgPopup);
+
+
+    const popupInfoText = document.createElement("div")
+    popupInfoText.classList.add("popup-info-text")
+    popupInfoText.id =`popupInfoText-${countProductPopup}`
+    document.getElementById(`popupInfoWrapper-${countProductPopup}`).append(popupInfoText)
+
+    const popupText = document.createElement("div")
+    popupText.classList.add("popup-text")
+    popupText.id = `popupText-${countProductPopup}`
+    document.getElementById(`popupInfoText-${countProductPopup}`).append(popupText)
 
     const productNamePopup = document.createElement("h4");
     productNamePopup.classList.add("title-popup");
@@ -94,36 +104,94 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
     const productPricePopup = document.createElement("h4");
     productPricePopup.classList.add("title-popup");
     productPricePopup.innerHTML = ` ฿ ${valuePrice}`;
+
+    const lorem = document.createElement("p");
+    lorem.style.opacity = "70%"
+    lorem.innerHTML = ` Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore pla <br>
+    ceat repellat harum, officia sapiente voluptates quis, quidem, quam ve- <br>lit ut laboriosam? 
+    Eligendi harum recusandae laudantium accusantium quisquam a, odio minima.`
     
-    document.querySelector(selectorContainerText).prepend(productNamePopup,productPricePopup)
+    document.getElementById(`popupText-${countProductPopup}`).prepend(productNamePopup,productPricePopup,lorem)
     
+
+    const popupPickColor = document.createElement("div")
+    popupPickColor.classList.add("popup-pick-color");
+    popupPickColor.id = `popupPickColor-${countProductPopup}`
+    document.getElementById(`popupInfoText-${countProductPopup}`).append(popupPickColor)
+
+    const titlePopupPickColor = document.createElement("h4")
+    titlePopupPickColor.innerHTML = `Pick  a Color`
+
+    const popupCircle = document.createElement("div")
+    popupCircle.classList.add("popup-circle")
+    popupCircle.id = `popupCircle-${countProductPopup}`
+    document.getElementById(`popupPickColor-${countProductPopup}`).append(titlePopupPickColor,popupCircle)
+
+
     const pickColor = [];
 
         for (let i = 0; i < colors.length; i++) {
 
             pickColor[i] = document.createElement("div");
-            pickColor[i].classList.add(selectorClassColor)
+            pickColor[i].classList.add("popup-circle-color")
             pickColor[i].style.backgroundColor = colors[i]
-            document.querySelector(selectorContainerColor).append(pickColor[i])
+            document.getElementById(`popupCircle-${countProductPopup}`).append(pickColor[i])
 
-                for (let h = 0; h < nike.linkimage.length; h++) {
+            pickColor[i].addEventListener("click",()=>{
+                imgPopup.src = srcPopup[i];
+            })
                     
-                    pickColor[i].addEventListener("click",()=>{
-                        imgPopup.src = nike.linkimage[i];
-                    })
-                    
-                }
-
-
-            }
-        
         }
+            
+
+        const popupCart = document.createElement("div")
+        popupCart.classList.add("popup-cart-btn");
+        popupCart.id = `popupCart-${countProductPopup}`
+        document.getElementById(`popupInfoText-${countProductPopup}`).append(popupCart)
+
+        const btnAdd = document.createElement("button")
+        btnAdd.classList.add("add-to-cart")
+        btnAdd.innerHTML = `<i class="bi bi-cart-plus-fill"></i> Add To Cart`
+
+        
+        const btnAdded = document.createElement("button")
+        btnAdded.classList.add("cart-added")
+        btnAdded.innerHTML = `Cart Added`
+        document.getElementById(`popupCart-${countProductPopup}`).append(btnAdd,btnAdded)
+
+           
+        btnAdd.addEventListener("click",()=>{
+            btnAdd.style.display = "none";
+            btnAdded.style.display = "block";
+        })
+
+        countProductPopup++
+
+        exit.addEventListener("click",()=>{
+            contentPopup.style.display = "none";
+        })
+        
+    }
 
 
 
 
-createProductPopup(nike.linkimage[0],"popup-product-image",".popup-image",nike.productname,nike.price,".popup-text",
-nike.colors,"popup-circle-color",".popup-circle")
+
+createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,
+nike.colors)
+createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,
+nike2.colors)
+
+
+let keep = [];
+keep = document.querySelectorAll('.nike-info')
+console.log(keep[1]);
+
+contentNike.addEventListener("click",()=>{
+    contentPopup.style.display = "block";
+    if(keep){}
+})
+
 
 
 
