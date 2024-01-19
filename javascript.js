@@ -34,9 +34,9 @@ function productObject(id,productname,price,colors,linkimage){
  
 }
 
-const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon-9-amp-orange.png","./img/metcon-9-amp-blue.png"]);
+const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img/metcon-9-amp-blue.png"]);
 const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","white"],
-["./img/air-force-1-07-blue.png","./img/air-force-1-07-pink.png","./img/air-force-1-07-green.png","./img/air-force-1-07-white.png"]);
+["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
 
 let countProduct = 0 ;
 
@@ -124,7 +124,6 @@ function createProductPopup(srcPopup,selectorClassImgPopup, selectorContainerImg
 
 createProductPopup(nike.linkimage[0],"popup-product-image",".popup-image",nike.productname,nike.price,".popup-text",
 nike.colors,"popup-circle-color",".popup-circle")
-
 
 
 
