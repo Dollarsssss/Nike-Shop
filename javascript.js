@@ -1,4 +1,3 @@
-
 const addCart = document.querySelector(".add-to-cart");
 const cartAdded = document.querySelector(".cart-added");
 
@@ -28,7 +27,6 @@ let countProduct = 0 ;
 
 function createProduct(id,src,valueText,valuePrice){
 
-    
     const wrapperObject = document.createElement("div");
     wrapperObject.classList.add("nike-info");
     wrapperObject.id = `nike-info-ID-${countProduct}`
@@ -112,7 +110,7 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
     lorem.style.opacity = "70%"
     lorem.innerHTML = ` Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore pla <br>
     ceat repellat harum, officia sapiente voluptates quis, quidem, quam ve- <br>lit ut laboriosam? 
-    Eligendi harum recusandae laudantium accusantium quisquam a, odio minima.`
+    Eligendi recusandae laudantium accusantium minima.`
     
     document.getElementById(`popupText-${countProductPopup}`).prepend(productNamePopup,productPricePopup,lorem)
     
@@ -177,8 +175,6 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
         
     }
 
-
-
 createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors)
 createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors)
 createProductPopup(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors)
@@ -188,7 +184,6 @@ let keepContent = [];
 let keepContentPopup = [];
 keepContent = document.querySelectorAll('.nike-info')
 keepContentPopup = document.querySelectorAll('.container-popup-wrapper')
-
 
 
 for (let i = 0; i < keepContent.length; i++) {
@@ -203,19 +198,6 @@ for (let i = 0; i < keepContent.length; i++) {
 }
 
 
-// keepContent[0].addEventListener("click",()=>{
-//     contentPopup.style.display = "block";
-//     keepContentPopup[0].style.display = "block";
-//     keepContentPopup[1].style.display = "none";
-
-    
-// })
-// keepContent[1].addEventListener("click",()=>{
-//     contentPopup.style.display = "block";
-//     keepContentPopup[1].style.display = "block";
-//     keepContentPopup[0].style.display = "none";
- 
-// })
 
 
 
