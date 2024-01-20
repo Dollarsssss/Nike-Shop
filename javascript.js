@@ -19,7 +19,7 @@ function productObject(id,productname,price,colors,linkimage){
 }
 
 const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
-const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","white"],
+const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","#d2d6d3"],
 ["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
 
 let countProduct = 0 ;
@@ -176,10 +176,8 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
 
 
-createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,
-nike.colors)
-createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,
-nike2.colors)
+createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors)
+createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors)
 
 
 let keepContent = [];
