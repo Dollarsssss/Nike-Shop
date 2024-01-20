@@ -183,23 +183,38 @@ createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,
 nike2.colors)
 
 
-let keep = [];
-keep = document.querySelectorAll('.nike-info')
+let keepContent = [];
+let keepContentPopup = [];
+keepContent = document.querySelectorAll('.nike-info')
+keepContentPopup = document.querySelectorAll('.container-popup-wrapper')
 
 
-keep[0].addEventListener("click",()=>{
-    contentPopup.style.display = "block";
-    document.getElementById("containerPopup-0").style.display = "block";
-    document.getElementById("containerPopup-1").style.display = "none";
+
+for (let i = 0; i < keepContent.length; i++) {
+    keepContent[i].addEventListener("click", () => {
+        contentPopup.style.display = "block";
+
+        for (let j = 0; j < keepContentPopup.length; j++) {
+            const currentPopup = keepContentPopup[j];
+            currentPopup.style.display = (i === j) ? "block" : "none";
+        }
+    });
+}
+
+
+// keepContent[0].addEventListener("click",()=>{
+//     contentPopup.style.display = "block";
+//     keepContentPopup[0].style.display = "block";
+//     keepContentPopup[1].style.display = "none";
+
     
-
-})
-keep[1].addEventListener("click",()=>{
-    contentPopup.style.display = "block";
-    document.getElementById("containerPopup-1").style.display = "block";
-    document.getElementById("containerPopup-0").style.display = "none";
+// })
+// keepContent[1].addEventListener("click",()=>{
+//     contentPopup.style.display = "block";
+//     keepContentPopup[1].style.display = "block";
+//     keepContentPopup[0].style.display = "none";
  
-})
+// })
 
 
 
