@@ -169,11 +169,10 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
         exit.addEventListener("click",()=>{
             contentPopup.style.display = "none";
+            imgPopup.src = srcPopup[0];
         })
         
     }
-
-
 
 
 
