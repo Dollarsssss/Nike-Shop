@@ -21,6 +21,8 @@ function productObject(id,productname,price,colors,linkimage){
 const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
 const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","#d2d6d3"],
 ["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
+const nike3 = new productObject(3,"Nike Air Max Pulse Roam","6,000",["#baa611","#690a0a","#e0d88d","#1a181f"],["./img/Nike-Air-Max-Pulse-Roam/Nike-Yellow.jpg"
+,"./img/Nike-Air-Max-Pulse-Roam/Nike-Red.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Egg.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Dark.jpg"])
 
 let countProduct = 0 ;
 
@@ -59,6 +61,7 @@ function createProduct(id,src,valueText,valuePrice){
 
 createProduct(nike.id,nike.linkimage[0],nike.productname,nike.price);
 createProduct(nike2.id,nike2.linkimage[0],nike2.productname,nike2.price);
+createProduct(nike3.id,nike3.linkimage[0],nike3.productname,nike3.price);
 
 let countProductPopup = 0;
 
@@ -178,6 +181,7 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
 createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors)
 createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors)
+createProductPopup(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors)
 
 
 let keepContent = [];

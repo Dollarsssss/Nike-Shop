@@ -104,8 +104,8 @@ nav {
 
                     & img {
                         
-                        width: 220px;
-                        height: 220px;
+                        width: 265px;
+                        height: 265px;
                     }
 
                     & .nike-text {
@@ -113,6 +113,7 @@ nav {
                         margin: 20px;
             
                         & .title {
+                           
                             font-size: 20px;
                             margin: 10px 0;
                         }
