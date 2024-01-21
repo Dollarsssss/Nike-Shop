@@ -30,7 +30,7 @@ nav {
             cursor: pointer;
 
             & .popup-cart {
-                display: none;
+                
                 border: 1px solid #222;
                 border-radius: 5px;
                 top: 18px;
@@ -38,7 +38,7 @@ nav {
                 position: absolute;
                 width: 300px;
                 height: 500px;
-                background-color: #fff;
+                background-color: #d5d3d3;
                 z-index: 9999;
             }
         }
@@ -51,7 +51,7 @@ nav {
     
     & aside {
    
-        width: 300px;
+        
     
         & .aside-wrapper {
            

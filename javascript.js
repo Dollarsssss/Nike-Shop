@@ -31,8 +31,9 @@ const nike3 = new productObject(3,"Nike Air Max Pulse Roam","6,000",["#baa611","
 ,"./img/Nike-Air-Max-Pulse-Roam/Nike-Red.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Egg.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Dark.jpg"])
 
 let countProduct = 0 ;
+let countProductPopup = 0 ;
 
-function createProduct(id,src,valueText,valuePrice){
+function createProduct(id,src,valueText,valuePrice,colors){
 
     const wrapperObject = document.createElement("div");
     wrapperObject.classList.add("nike-info");
@@ -41,7 +42,7 @@ function createProduct(id,src,valueText,valuePrice){
   
     const img = document.createElement("img");
     img.classList.add("product-image");
-    img.src = src;
+    img.src = src[0];
     document.getElementById(`nike-info-ID-${countProduct}`).append(img);
 
 
@@ -61,17 +62,6 @@ function createProduct(id,src,valueText,valuePrice){
     document.getElementById(`nike-text-ID-${countProduct}`).append(productName,productPrice);
 
     countProduct++;
-    
-}
-
-createProduct(nike.id,nike.linkimage[0],nike.productname,nike.price);
-createProduct(nike2.id,nike2.linkimage[0],nike2.productname,nike2.price);
-createProduct(nike3.id,nike3.linkimage[0],nike3.productname,nike3.price);
-
-let countProductPopup = 0;
-
-function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
-
 
     const containerPopup = document.createElement("div");
     containerPopup.classList.add("container-popup-wrapper")
@@ -91,7 +81,7 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
     const imgPopup = document.createElement("img");
     imgPopup.classList.add("popup-product-image");
-    imgPopup.src = srcPopup[0];
+    imgPopup.src = src[0];
     document.getElementById(`popupImage-${countProductPopup}`).append(imgPopup);
 
 
@@ -146,7 +136,7 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
             document.getElementById(`popupCircle-${countProductPopup}`).append(pickColor[i])
 
             pickColor[i].addEventListener("click",()=>{
-                imgPopup.src = srcPopup[i];
+                imgPopup.src = src[i];
             })
                     
         }
@@ -177,14 +167,15 @@ function createProductPopup(id,srcPopup,valueText,valuePrice,colors){
 
         exit.addEventListener("click",()=>{
             contentPopup.style.display = "none";
-            imgPopup.src = srcPopup[0];
+            imgPopup.src = src[0];
         })
-        
-    }
 
-createProductPopup(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors)
-createProductPopup(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors)
-createProductPopup(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors)
+    
+}
+
+createProduct(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors);
+createProduct(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors);
+createProduct(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors);
 
 
 let keepContent = [];
