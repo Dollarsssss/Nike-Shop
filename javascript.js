@@ -6,6 +6,13 @@ const contentPopup = document.querySelector(".content-popup");
 const exit = document.getElementById("exit");
 
 
+    const logo = document.querySelector(".logo")
+    const popupCart = document.querySelector(".popup-cart")
+    logo.addEventListener("click",()=>{
+      popupCart.style.display = (popupCart.style.display === "none" ? "block" : "none");
+    })
+
+
 
 function productObject(id,productname,price,colors,linkimage){
 
