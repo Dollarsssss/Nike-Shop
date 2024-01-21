@@ -30,6 +30,9 @@ const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink",
 const nike3 = new productObject(3,"Nike Air Max Pulse Roam","6,000",["#baa611","#690a0a","#e0d88d","#1a181f"],["./img/Nike-Air-Max-Pulse-Roam/Nike-Yellow.jpg"
 ,"./img/Nike-Air-Max-Pulse-Roam/Nike-Red.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Egg.png","./img/Nike-Air-Max-Pulse-Roam/Nike-Dark.jpg"])
 
+const nike4 = new productObject(4,"Nike Club","2,400",["gray","black","white"],["./img/Nike-Club/Nike-Club-Gray.jpg","./img/Nike-Club/Nike-Club-Black.png"
+,"./img/Nike-Club/Nike-Club-White.png"])
+
 let countProduct = 0 ;
 let countProductPopup = 0 ;
 
@@ -176,6 +179,7 @@ function createProduct(id,src,valueText,valuePrice,colors){
 createProduct(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors);
 createProduct(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors);
 createProduct(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors);
+createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.colors);
 
 
 let keepContent = [];
