@@ -6,7 +6,7 @@ const contentPopup = document.querySelector(".content-popup");
 const exit = document.getElementById("exit");
 
 
-    const logo = document.querySelector(".logo")
+    const logo = document.getElementById("logo-icon")
     const popupCart = document.querySelector(".popup-cart")
     logo.addEventListener("click",()=>{
       popupCart.style.display = (popupCart.style.display === "none" ? "block" : "none");
@@ -35,6 +35,7 @@ const nike4 = new productObject(4,"Nike Club","2,400",["gray","black","white"],[
 
 let countProduct = 0 ;
 let countProductPopup = 0 ;
+let countList = 0;
 
 function createProduct(id,src,valueText,valuePrice,colors){
 
@@ -160,12 +161,74 @@ function createProduct(id,src,valueText,valuePrice,colors){
         btnAdded.innerHTML = `Cart Added`
         document.getElementById(`popupCart-${countProductPopup}`).append(btnAdd,btnAdded)
 
-           
+   
+
         btnAdd.addEventListener("click",()=>{
             btnAdd.style.display = "none";
             btnAdded.style.display = "block";
+            document.querySelector(".circle-number").style.display = "block"
+            
+
+            const menuCart = document.createElement("div");
+            menuCart.classList.add("menu-cart");
+            menuCart.id = `menuList-${countList}`;
+            document.querySelector(".list-cart").append(menuCart);
+
+            const imgList = document.createElement("img");
+            imgList.src = src[0];
+            document.getElementById(`menuList-${countList}`).append(imgList);
+
+            const iconMinus = document.createElement("i")
+            iconMinus.classList.add("bi")
+            iconMinus.classList.add("bi-dash-circle")
+            iconMinus.style.cursor = "pointer"
+            document.getElementById(`menuList-${countList}`).append(iconMinus);
+
+            const amoutList = document.createElement("span")
+            amoutList.id = "amout-list"
+            amoutList.innerHTML = 1
+            document.getElementById(`menuList-${countList}`).append(amoutList);
+
+            const iconPlus = document.createElement("i")
+            iconPlus.classList.add("bi")
+            iconPlus.classList.add("bi-plus-circle")
+            iconPlus.style.cursor = "pointer"
+            document.getElementById(`menuList-${countList}`).append(iconPlus);
+
+            countList++;
+            document.querySelector(".circle-number").innerHTML = countList
+
+            let editAmout = 1
+
+            iconPlus.addEventListener("click",()=>{
+                editAmout++;
+                amoutList.innerHTML = editAmout;
+            })
+            iconMinus.addEventListener("click",()=>{
+                editAmout--;
+                console.log(editAmout);
+                amoutList.innerHTML = editAmout;
+
+                if(amoutList.innerHTML < 1){
+                    if(confirm("You want to delete")){
+                    amoutList.innerHTML = 0
+                    editAmout = 0
+                    countList--;
+                    document.querySelector(".circle-number").innerHTML = " ";
+                    document.querySelector(".circle-number").style.display = "none"
+                    document.getElementById(`menuList-${countList}`).remove();
+                    } else {
+                        amoutList.innerHTML = 1
+                        editAmout = 1
+                        countList = 1;
+                       
+                    }   
+                }
+            })
+           
         })
 
+       
         countProductPopup++
 
         exit.addEventListener("click",()=>{
