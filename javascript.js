@@ -67,6 +67,10 @@ function createProduct(id,src,valueText,valuePrice,colors){
 
     countProduct++;
 
+
+
+    //content-popup
+
     const containerPopup = document.createElement("div");
     containerPopup.classList.add("container-popup-wrapper")
     containerPopup.id = `containerPopup-${countProductPopup}`
@@ -114,6 +118,23 @@ function createProduct(id,src,valueText,valuePrice,colors){
     Eligendi recusandae laudantium accusantium minima.`
     
     document.getElementById(`popupText-${countProductPopup}`).prepend(productNamePopup,productPricePopup,lorem)
+
+    let keepContent = [];
+    let keepContentPopup = [];
+    keepContent = document.querySelectorAll('.nike-info')
+    keepContentPopup = document.querySelectorAll('.container-popup-wrapper')
+    
+    
+    for (let i = 0; i < keepContent.length; i++) {
+        keepContent[i].addEventListener("click", () => {
+            contentPopup.style.display = "block";
+    
+            for (let j = 0; j < keepContentPopup.length; j++) {
+                const currentPopup = keepContentPopup[j];
+                currentPopup.style.display = (i === j) ? "block" : "none";
+            }
+        });
+    }
     
 
     const popupPickColor = document.createElement("div")
@@ -153,22 +174,27 @@ function createProduct(id,src,valueText,valuePrice,colors){
 
         const btnAdd = document.createElement("button")
         btnAdd.classList.add("add-to-cart")
+        btnAdd.id = `btnAdd-${countProductPopup}`
         btnAdd.innerHTML = `<i class="bi bi-cart-plus-fill"></i> Add To Cart`
 
         
         const btnAdded = document.createElement("button")
         btnAdded.classList.add("cart-added")
+        btnAdded.id = `btnAdded-${countProductPopup}`
         btnAdded.innerHTML = `Cart Added`
         document.getElementById(`popupCart-${countProductPopup}`).append(btnAdd,btnAdded)
 
-   
+    
 
         btnAdd.addEventListener("click",()=>{
+
+           
+
+
             btnAdd.style.display = "none";
             btnAdded.style.display = "block";
             document.querySelector(".circle-number").style.display = "block"
             
-
             const menuCart = document.createElement("div");
             menuCart.classList.add("menu-cart");
             menuCart.id = `menuList-${countList}`;
@@ -182,10 +208,12 @@ function createProduct(id,src,valueText,valuePrice,colors){
             iconMinus.classList.add("bi")
             iconMinus.classList.add("bi-dash-circle")
             iconMinus.style.cursor = "pointer"
+            iconMinus.id = `iconMinus-${countList}`
             document.getElementById(`menuList-${countList}`).append(iconMinus);
 
+
             const amoutList = document.createElement("span")
-            amoutList.id = "amout-list"
+            amoutList.id = `amout-list-${countList}`
             amoutList.innerHTML = 1
             document.getElementById(`menuList-${countList}`).append(amoutList);
 
@@ -200,30 +228,96 @@ function createProduct(id,src,valueText,valuePrice,colors){
 
             let editAmout = 1
 
-            iconPlus.addEventListener("click",()=>{
+
+
+            
+            const plusButtons = document.querySelectorAll(".bi-plus-circle");
+            console.log(plusButtons);
+
+            plusButtons[0].addEventListener("click",()=>{
                 editAmout++;
-                amoutList.innerHTML = editAmout;
+                const amountElement = document.getElementById(`amout-list-0`);
+                amountElement.innerHTML = editAmout;
+                console.log(editAmout);
+                
             })
-            iconMinus.addEventListener("click",()=>{
+            plusButtons[1].addEventListener("click",()=>{
+                editAmout++;
+                const amountElement = document.getElementById(`amout-list-0`);
+                amountElement.innerHTML = editAmout;
+                console.log(editAmout);
+                
+            })
+            
+            plusButtons[2].addEventListener("click",()=>{
+                editAmout++;
+                const amountElement2 = document.getElementById(`amout-list-2`);
+                amountElement2.innerHTML = editAmout;
+                console.log(editAmout);
+                
+            })
+            plusButtons[3].addEventListener("click",()=>{
+                editAmout++;
+                const amountElement3 = document.getElementById(`amout-list-3`);
+                amountElement3.innerHTML = editAmout;
+                console.log(editAmout);
+                
+            })
+
+            const MinusButtons = document.querySelectorAll(".bi-dash-circle");
+
+            function handleMinusClick(index) {
                 editAmout--;
                 console.log(editAmout);
-                amoutList.innerHTML = editAmout;
-
-                if(amoutList.innerHTML < 1){
-                    if(confirm("You want to delete")){
-                    amoutList.innerHTML = 0
-                    editAmout = 0
-                    countList--;
-                    document.querySelector(".circle-number").innerHTML = " ";
-                    document.querySelector(".circle-number").style.display = "none"
-                    document.getElementById(`menuList-${countList}`).remove();
+                
+                const amountElement = document.getElementById(`amout-list-${index}`);
+                amountElement.innerHTML = editAmout;
+                
+                if (editAmout < 1) {
+                    if (confirm("You want to delete") === true) {
+                        document.getElementById(`menuList-${index}`).remove();
+                        document.querySelector(".circle-number").innerHTML = countList - 1;
                     } else {
-                        amoutList.innerHTML = 1
-                        editAmout = 1
-                        countList = 1;
-                       
-                    }   
+                        editAmout = 1;
+                        amountElement.innerHTML = editAmout;
+                    }
                 }
+            }
+            MinusButtons.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    handleMinusClick(index);
+                });
+            });
+
+            iconMinus.addEventListener("click",()=>{
+                // editAmout--;
+                // amoutList.innerHTML = editAmout;
+
+                // if(amoutList.innerHTML == 0){
+
+                //     if(confirm("You want to delete") === true){
+
+        
+                  
+                //     countList--;
+                //     editAmout++;
+                //     amoutList.innerHTML = editAmout;
+                //     document.querySelector(".circle-number").innerHTML = countList;
+                   
+                
+                //         if(countList == 0){
+                //             document.querySelector(".circle-number").style.display = "none"
+                //         }
+                //         else{
+                //             document.querySelector(".circle-number").style.display = "block"
+                //         }
+                //     } else {
+                //         amoutList.innerHTML = 1
+                //         editAmout = 1
+        
+                       
+                //     }   
+                // } 
             })
            
         })
@@ -234,6 +328,7 @@ function createProduct(id,src,valueText,valuePrice,colors){
         exit.addEventListener("click",()=>{
             contentPopup.style.display = "none";
             imgPopup.src = src[0];
+
         })
 
     
@@ -243,25 +338,6 @@ createProduct(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors);
 createProduct(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors);
 createProduct(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors);
 createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.colors);
-
-
-let keepContent = [];
-let keepContentPopup = [];
-keepContent = document.querySelectorAll('.nike-info')
-keepContentPopup = document.querySelectorAll('.container-popup-wrapper')
-
-
-for (let i = 0; i < keepContent.length; i++) {
-    keepContent[i].addEventListener("click", () => {
-        contentPopup.style.display = "block";
-
-        for (let j = 0; j < keepContentPopup.length; j++) {
-            const currentPopup = keepContentPopup[j];
-            currentPopup.style.display = (i === j) ? "block" : "none";
-        }
-    });
-}
-
 
 
 
