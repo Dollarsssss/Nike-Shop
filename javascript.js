@@ -209,6 +209,10 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
     const btnAdd = document.querySelectorAll(".add-to-cart")   
     const btnAdded = document.querySelectorAll(".cart-added")  
     
+    const Allnike = {0:nike1.linkimage,
+        1:nike2.linkimage,
+        2:nike3.linkimage,
+        3:nike4.linkimage,}
 
         btnAdd.forEach((button,index)=>{
         button.addEventListener("click",()=>{
@@ -223,7 +227,14 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             document.querySelector(".list-cart").append(menuCart);
 
             const imgList = document.createElement("img");
-            imgList.src = clickChooseColor
+
+            if(clickChooseColor == ""){
+                imgList.src = Allnike[index-1][0]
+            }else{ 
+                imgList.src = clickChooseColor
+            }
+            clickChooseColor = "";
+
             document.getElementById(`menuList-${countList}`).append(imgList);
 
             const iconMinus = document.createElement("i")
@@ -274,11 +285,17 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
                     const confirmation = confirm("Do you want to remove the item?");
                     if(confirmation === true) {
                         document.getElementById(`menuList-${PlaceAllIcon}`).remove()
+                        countList--
+                        const cartTotal = document.querySelector(".circle-number").innerHTML = countList
+                        if(cartTotal == 0){
+                            document.querySelector(".circle-number").style.display = "none"
+                        }else{document.querySelector(".circle-number").style.display = "block"}
                         console.log(amoutList);
                     }else{
                         number = 1;
                         const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = 1;
                         console.log(amoutList);
+                          
 
                     }
                     
