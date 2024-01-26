@@ -24,7 +24,7 @@ function productObject(id,productname,price,colors,linkimage){
  
 }
 
-const nike1= new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
+const nike1= new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img/metcon/metcon-9-amp-blue.png"]);
 const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","#d2d6d3"],
 ["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
 const nike3 = new productObject(3,"Nike Air Max Pulse Roam","6,000",["#baa611","#690a0a","#e0d88d","#1a181f"],["./img/Nike-Air-Max-Pulse-Roam/Nike-Yellow.jpg"
@@ -36,6 +36,7 @@ const nike4 = new productObject(4,"Nike Club","2,400",["gray","black","white"],[
 let countProduct = 0 ;
 let countProductPopup = 0 ;
 let countList = 0;
+let clickChooseColor ="";
 
 function createProduct(id,src,valueText,valuePrice,colors){
 
@@ -158,14 +159,20 @@ function createProduct(id,src,valueText,valuePrice,colors){
             pickColor[i] = document.createElement("div");
             pickColor[i].classList.add("popup-circle-color")
             pickColor[i].style.backgroundColor = colors[i]
+            pickColor[i].id = `popupPickColor-${countProductPopup}`
             document.getElementById(`popupCircle-${countProductPopup}`).append(pickColor[i])
 
             pickColor[i].addEventListener("click",()=>{
                 imgPopup.src = src[i];
+                clickChooseColor = src[i];
+                console.log(clickChooseColor);
             })
                     
         }
-            
+
+
+        // const chooseColor =document.querySelectorAll(`.popup-circle-color`)
+        // console.log(chooseColor);
 
         const popupCart = document.createElement("div")
         popupCart.classList.add("popup-cart-btn");
@@ -201,17 +208,10 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
 
     const btnAdd = document.querySelectorAll(".add-to-cart")   
     const btnAdded = document.querySelectorAll(".cart-added")  
-
+    
 
         btnAdd.forEach((button,index)=>{
         button.addEventListener("click",()=>{
-
-            const Allnike = {0:nike1.linkimage,
-                            1:nike2.linkimage,
-                            2:nike3.linkimage,
-                            3:nike4.linkimage,}
-
-       
 
             button.style.display = "none";
             btnAdded[index++].style.display = "block";
@@ -223,7 +223,7 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             document.querySelector(".list-cart").append(menuCart);
 
             const imgList = document.createElement("img");
-            imgList.src = Allnike[0][0]
+            imgList.src = clickChooseColor
             document.getElementById(`menuList-${countList}`).append(imgList);
 
             const iconMinus = document.createElement("i")
@@ -256,18 +256,18 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
 
             let number = 1;
     
-            const plusButtons = document.getElementById(`iconPlus-${AllPlus.length-1}`)
+            const plusButtons = document.getElementById(`iconPlus-${AllPlus.length-1}`);
             const minusButtons = document.getElementById(`iconMinus-${AllMinus.length-1}`);
-        
+          
 
             plusButtons.addEventListener("click",()=>{
-                number++
+                number++;
                 const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = number;
                 console.log(amoutList);
             })
 
             minusButtons.addEventListener("click",()=>{
-                number--
+                number--;
                 const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = number;
                
                 if(amoutList < 1) {
@@ -295,23 +295,7 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
        
 
     
-    //  let number = 1;
-            
-    //         const plusButtons = document.getElementById(`iconPlus-${index-1}`)
-    //         const minusButtons = document.getElementById(`iconMinus-${index-1}`);
 
-    //         plusButtons.addEventListener("click",()=>{
-    //             number++
-    //             const amoutList = document.getElementById(`amout-list-${index-1}`).innerHTML = number;
-    //             console.log(amoutList);
-    //         })
-
-    //         minusButtons.addEventListener("click",()=>{
-    //             number--
-    //             const amoutList = document.getElementById(`amout-list-${index-1}`).innerHTML = number;
-    //             console.log(amoutList);
-    //         })
-   
 
 
 
