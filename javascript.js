@@ -24,7 +24,7 @@ function productObject(id,productname,price,colors,linkimage){
  
 }
 
-const nike = new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
+const nike1= new productObject(1,"Metcon 9 Awp","4,500",["orange","blue"],["./img/metcon/metcon-9-amp-orange.png","./img//metcon/metcon-9-amp-blue.png"]);
 const nike2 = new productObject(2,"Nike Air Force 1 '07","4,300",["blue","pink","green","#d2d6d3"],
 ["./img/air-force/air-force-1-07-blue.png","./img/air-force/air-force-1-07-pink.png","./img/air-force/air-force-1-07-green.png","./img/air-force/air-force-1-07-white.png"]);
 const nike3 = new productObject(3,"Nike Air Max Pulse Roam","6,000",["#baa611","#690a0a","#e0d88d","#1a181f"],["./img/Nike-Air-Max-Pulse-Roam/Nike-Yellow.jpg"
@@ -194,7 +194,7 @@ function createProduct(id,src,valueText,valuePrice,colors){
     
     }
 
-createProduct(nike.id,nike.linkimage,nike.productname,nike.price,nike.colors);
+createProduct(nike1.id,nike1.linkimage,nike1.productname,nike1.price,nike1.colors);
 createProduct(nike2.id,nike2.linkimage,nike2.productname,nike2.price,nike2.colors);
 createProduct(nike3.id,nike3.linkimage,nike3.productname,nike3.price,nike3.colors);
 createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.colors);
@@ -202,69 +202,110 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
     const btnAdd = document.querySelectorAll(".add-to-cart")   
     const btnAdded = document.querySelectorAll(".cart-added")  
 
-    console.log(btnAdd);
 
-   
-    btnAdd[0].addEventListener("click",()=>{
+        btnAdd.forEach((button,index)=>{
+        button.addEventListener("click",()=>{
 
-        btnAdd[0].style.display = "none";
-        btnAdded[0].style.display = "block";
-        document.querySelector(".circle-number").style.display = "block"
+            const Allnike = [nike1.linkimage[0],nike2.linkimage[0],nike3.linkimage[0],nike4.linkimage[0],]
+
+            button.style.display = "none";
+            btnAdded[index++].style.display = "block";
+            document.querySelector(".circle-number").style.display = "block"
+            
+            const menuCart = document.createElement("div");
+            menuCart.classList.add("menu-cart");
+            menuCart.id = `menuList-${countList}`;
+            document.querySelector(".list-cart").append(menuCart);
+
+            const imgList = document.createElement("img");
+            imgList.src = Allnike[index-1]
+            document.getElementById(`menuList-${countList}`).append(imgList);
+
+            const iconMinus = document.createElement("i")
+            iconMinus.classList.add("bi")
+            iconMinus.classList.add("bi-dash-circle")
+            iconMinus.style.cursor = "pointer"
+            iconMinus.id = `iconMinus-${countList}`
+            document.getElementById(`menuList-${countList}`).append(iconMinus);
+
+
+            const amoutList = document.createElement("span")
+            amoutList.id = `amout-list-${countList}`
+            amoutList.innerHTML = 1
+            document.getElementById(`menuList-${countList}`).append(amoutList);
+
+            const iconPlus = document.createElement("i")
+            iconPlus.classList.add("bi")
+            iconPlus.classList.add("bi-plus-circle")
+            iconPlus.style.cursor = "pointer"
+            iconPlus.id = `iconPlus-${countList}`
+            document.getElementById(`menuList-${countList}`).append(iconPlus);
+
+            countList++;
+            document.querySelector(".circle-number").innerHTML = countList
+
+            const AllPlus = document.querySelectorAll('.bi-plus-circle');
+            const AllMinus = document.querySelectorAll('.bi-dash-circle');;
+            
+            const PlaceAllIcon = AllPlus.length-1
+
+            let number = 1;
+    
+            const plusButtons = document.getElementById(`iconPlus-${AllPlus.length-1}`)
+            const minusButtons = document.getElementById(`iconMinus-${AllMinus.length-1}`);
         
-        const menuCart = document.createElement("div");
-        menuCart.classList.add("menu-cart");
-        menuCart.id = `menuList-${countList}`;
-        document.querySelector(".list-cart").append(menuCart);
 
-        const imgList = document.createElement("img");
-        imgList.src = nike.linkimage[0];
-        document.getElementById(`menuList-${countList}`).append(imgList);
+            plusButtons.addEventListener("click",()=>{
+                number++
+                const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = number;
+                console.log(amoutList);
+            })
 
-        const iconMinus = document.createElement("i")
-        iconMinus.classList.add("bi")
-        iconMinus.classList.add("bi-dash-circle")
-        iconMinus.style.cursor = "pointer"
-        iconMinus.id = `iconMinus-${countList}`
-        document.getElementById(`menuList-${countList}`).append(iconMinus);
+            minusButtons.addEventListener("click",()=>{
+                number--
+                const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = number;
+               
+                if(amoutList < 1) {
+                    const confirmation = confirm("Do you want to remove the item?");
+                    if(confirmation === true) {
+                        document.getElementById(`menuList-${PlaceAllIcon}`).remove()
+                        console.log(amoutList);
+                    }else{
+                        number = 1;
+                        const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = 1;
+                        console.log(amoutList);
 
+                    }
+                    
+                }
+            })
 
-        const amoutList = document.createElement("span")
-        amoutList.id = `amout-list-${countList}`
-        amoutList.innerHTML = 1
-        document.getElementById(`menuList-${countList}`).append(amoutList);
-
-        const iconPlus = document.createElement("i")
-        iconPlus.classList.add("bi")
-        iconPlus.classList.add("bi-plus-circle")
-        iconPlus.style.cursor = "pointer"
-        iconPlus.id = `iconPlus-${countList}`
-        document.getElementById(`menuList-${countList}`).append(iconPlus);
-
-        countList++;
-        document.querySelector(".circle-number").innerHTML = countList
-
-        const plusButtons = document.getElementById(`iconPlus-0`)
-        const minusButtons = document.getElementById(`iconMinus-0`);
-
-        let number = 1;
-
-                plusButtons.addEventListener("click",()=>{
-                    number++
-                    const amoutList = document.getElementById(`amout-list-0`).innerHTML = number;
-                    console.log(amoutList);
-                })
-
-                minusButtons.addEventListener("click",()=>{
-                    number--
-                    const amoutList = document.getElementById(`amout-list-0`).innerHTML = number
-                    console.log(amoutList);
-                })
-      
+            })
             
         })
-
     
 
+      
+            
+       
+
+    
+    //  let number = 1;
+            
+    //         const plusButtons = document.getElementById(`iconPlus-${index-1}`)
+    //         const minusButtons = document.getElementById(`iconMinus-${index-1}`);
+
+    //         plusButtons.addEventListener("click",()=>{
+    //             number++
+    //             const amoutList = document.getElementById(`amout-list-${index-1}`).innerHTML = number;
+    //             console.log(amoutList);
+    //         })
+
+    //         minusButtons.addEventListener("click",()=>{
+    //             number--
+    //             const amoutList = document.getElementById(`amout-list-${index-1}`).innerHTML = number;
+    //             console.log(amoutList);
+    //         })
    
 
 
