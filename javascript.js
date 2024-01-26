@@ -224,7 +224,6 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             document.querySelector(".list-cart").append(menuCart);
 
             const imgList = document.createElement("img");
-            imgList.id =`imgList-${countList}`
             if(clickChooseColor == ""){
                 imgList.src = Allnike[index-1][0]
             }else{ 
@@ -282,6 +281,23 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
                     if(confirmation === true) {
                         document.getElementById(`menuList-${PlaceAllIcon}`).remove()
                         countList--
+
+                        const nikeList = [nike1, nike2, nike3, nike4];
+
+                        for (let i = 0; i < nikeList.length; i++) {
+                          for (let j = 0; j < nikeList[i].linkimage.length; j++) {
+                            let imgURL = imgList.src;
+                            let imgPath = `.${imgURL.replace(/^.*\/\/[^\/]+/, '')}`;
+                            
+                            if (imgPath == nikeList[i].linkimage[j]) {
+                            btnAdd[i].style.display = "block";
+                            btnAdded[i].style.display = "none";
+                            console.log("Changed");
+                            index --;
+                                }
+                            }
+                        }
+
                         const cartTotal = document.querySelector(".circle-number").innerHTML = countList
                         if(cartTotal == 0){
                             document.querySelector(".circle-number").style.display = "none"
@@ -301,17 +317,7 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             
         })
     
-
-        // for (let i = 0; i < nike1.linkimage.length; i++) {
-                        //     let imgURL = imgList.src;
-                        //     let imgPath = `.${imgURL.replace(/^.*\/\/[^\/]+/, '')}`
-                            
-                        //     if(imgPath == nike1.linkimage[i]){
-                        //         btnAdd[0].style.display = "block";
-                        //         btnAdded[0].style.display = "none";
-                        //         console.log("Changed");
-                        //     }
-                        // }
+//finish
             
        
 
