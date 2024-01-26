@@ -206,7 +206,12 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
         btnAdd.forEach((button,index)=>{
         button.addEventListener("click",()=>{
 
-            const Allnike = [nike1.linkimage[0],nike2.linkimage[0],nike3.linkimage[0],nike4.linkimage[0],]
+            const Allnike = {0:nike1.linkimage,
+                            1:nike2.linkimage,
+                            2:nike3.linkimage,
+                            3:nike4.linkimage,}
+
+       
 
             button.style.display = "none";
             btnAdded[index++].style.display = "block";
@@ -218,7 +223,7 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             document.querySelector(".list-cart").append(menuCart);
 
             const imgList = document.createElement("img");
-            imgList.src = Allnike[index-1]
+            imgList.src = Allnike[0][0]
             document.getElementById(`menuList-${countList}`).append(imgList);
 
             const iconMinus = document.createElement("i")
