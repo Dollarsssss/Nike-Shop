@@ -201,6 +201,9 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
 
     const btnAdd = document.querySelectorAll(".add-to-cart")   
     const btnAdded = document.querySelectorAll(".cart-added")  
+
+    console.log(btnAdd);
+
    
     btnAdd[0].addEventListener("click",()=>{
 
@@ -241,13 +244,19 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
         document.querySelector(".circle-number").innerHTML = countList
 
         const plusButtons = document.getElementById(`iconPlus-0`)
-            const minusButtons = document.querySelectorAll(".bi-dash-circle");
+        const minusButtons = document.getElementById(`iconMinus-0`);
 
-     
+        let number = 1;
+
                 plusButtons.addEventListener("click",()=>{
-                    let number = 1;
                     number++
-                    const amoutList = document.getElementById(`amout-list-0`).innerHTML = number++;
+                    const amoutList = document.getElementById(`amout-list-0`).innerHTML = number;
+                    console.log(amoutList);
+                })
+
+                minusButtons.addEventListener("click",()=>{
+                    number--
+                    const amoutList = document.getElementById(`amout-list-0`).innerHTML = number
                     console.log(amoutList);
                 })
       
