@@ -171,9 +171,6 @@ function createProduct(id,src,valueText,valuePrice,colors){
         }
 
 
-        // const chooseColor =document.querySelectorAll(`.popup-circle-color`)
-        // console.log(chooseColor);
-
         const popupCart = document.createElement("div")
         popupCart.classList.add("popup-cart-btn");
         popupCart.id = `popupCart-${countProductPopup}`
@@ -210,9 +207,9 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
     const btnAdded = document.querySelectorAll(".cart-added")  
     
     const Allnike = {0:nike1.linkimage,
-        1:nike2.linkimage,
-        2:nike3.linkimage,
-        3:nike4.linkimage,}
+                    1:nike2.linkimage,
+                    2:nike3.linkimage,
+                    3:nike4.linkimage,}
 
         btnAdd.forEach((button,index)=>{
         button.addEventListener("click",()=>{
@@ -227,14 +224,13 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
             document.querySelector(".list-cart").append(menuCart);
 
             const imgList = document.createElement("img");
-
+            imgList.id =`imgList-${countList}`
             if(clickChooseColor == ""){
                 imgList.src = Allnike[index-1][0]
             }else{ 
                 imgList.src = clickChooseColor
             }
             clickChooseColor = "";
-
             document.getElementById(`menuList-${countList}`).append(imgList);
 
             const iconMinus = document.createElement("i")
@@ -294,9 +290,8 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
                     }else{
                         number = 1;
                         const amoutList = document.getElementById(`amout-list-${PlaceAllIcon}`).innerHTML = 1;
-                        console.log(amoutList);
-                          
-
+                        console.log(amoutList);      
+                       
                     }
                     
                 }
@@ -307,7 +302,16 @@ createProduct(nike4.id,nike4.linkimage,nike4.productname,nike4.price,nike4.color
         })
     
 
-      
+        // for (let i = 0; i < nike1.linkimage.length; i++) {
+                        //     let imgURL = imgList.src;
+                        //     let imgPath = `.${imgURL.replace(/^.*\/\/[^\/]+/, '')}`
+                            
+                        //     if(imgPath == nike1.linkimage[i]){
+                        //         btnAdd[0].style.display = "block";
+                        //         btnAdded[0].style.display = "none";
+                        //         console.log("Changed");
+                        //     }
+                        // }
             
        
 
